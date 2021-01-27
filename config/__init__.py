@@ -28,8 +28,7 @@ except ImportError:
     parser.add_argument(
         "--mongodb-uri",
         help="MongoDB URI, if you don't provide the bot will lack some cool features",
-        required=False,
-        default="",
+        required=True,
     )
     parser.add_argument(
         "--sudo-users",
@@ -71,10 +70,6 @@ except ImportError:
     USERS_MUST_JOIN = args.users_must_join
     LANG = args.lang
     DUR_LIMIT = args.dur_limit
-    LOG_GROUP = GROUP if MONGO_DB_URI != "" else None
+    LOG_GROUP = GROUP if MONGO_DB_URI not in ("", None) else None
     SUDO_FILTER = filters.user(SUDO_USERS)
 
-async def custom_filter(_, __, ___):
-    return bool(LOG_GROUP)
-
-LOG_GROUP_FILTER = filters.create(custom_filter)

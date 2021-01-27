@@ -64,7 +64,7 @@ def wrap(func):
 def generate_image(
     thumbnail: str, title: str, requester: str
 ) -> str:
-    title, requester = (title if len(title) <= 18 else (title[:18] + "...")), (requester if len(requester) <= 13 else (requester[:13] + "..."))
+    title, requester = (title if len(title) <= 15 else (title[:15] + "...")), (requester if len(requester) <= 15 else (requester[:15] + "..."))
     out = thumbnail.split("/")[0] + "/out" + thumbnail.split("/")[1]
     background = Image.open("assets/png/background.png")
     thumbnail = Image.open(thumbnail).resize(background.size)
@@ -77,3 +77,19 @@ def generate_image(
     image_editable.text((216, 425), requester, (255, 255, 255), font=font)
     thumbnail.save(out)
     return out
+
+
+def func(func_, *args, **kwargs) -> dict:
+    return {"func": func_, "args": [*args], "kwargs": dict(**kwargs)}
+
+
+def run(_: dict, **kwargs):
+    return _["func"](
+        *_["args"],
+        **(
+            {
+                **_["kwargs"],
+                **(dict(**kwargs))
+            }
+        )
+    )
