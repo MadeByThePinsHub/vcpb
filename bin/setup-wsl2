@@ -1,0 +1,90 @@
+#!bin/sh
+# Same as doing cd /root
+cd ~
+
+## Kanged from https://github.com/rojserbest/vcpb-zeet-deploy/blob/master/Dockerfile ##
+## START KANG ##
+apt-get update -y && \ 
+    apt-get install -yqq locales  && \ 
+    apt-get install -yqq \
+        mate-desktop-environment-core \
+        mate-applet-brisk-menu \
+        mate-notification-daemon \
+        mate-notification-daemon-common \
+        mplayer \
+        pulseaudio \
+        python \
+        python3-pip && \ 
+    apt-get install --no-install-recommends -yqq \
+        supervisor \
+        sudo \
+        tzdata \
+        nano \
+        mc \
+        ca-certificates \
+        xterm \
+        curl \
+        wget \
+        wmctrl
+apt-get -y install \
+        git \
+        libxfont-dev \
+        xserver-xorg-core \
+        libx11-dev \
+        libxfixes-dev \
+        libssl-dev \
+        libpam0g-dev \
+        libtool \
+        libjpeg-dev \
+        flex \
+        bison \
+        gettext \
+        autoconf \
+        libxml-parser-perl \
+        libfuse-dev \
+        xsltproc \
+        libxrandr-dev \
+        python-libxml2 \
+        nasm \
+        xserver-xorg-dev \
+        fuse \
+        build-essential \
+        pkg-config \
+        libpulse-dev m4 intltool dpkg-dev \
+        libfdk-aac-dev \
+        libopus-dev \
+        libmp3lame-dev
+apt-get -y install \
+        git \
+        libxfont-dev \
+        xserver-xorg-core \
+        libx11-dev \
+        libxfixes-dev \
+        libssl-dev \
+        libpam0g-dev \
+        libtool \
+        libjpeg-dev \
+        flex \
+        bison \
+        gettext \
+        autoconf \
+        libxml-parser-perl \
+        libfuse-dev \
+        xsltproc \
+        libxrandr-dev \
+        python-libxml2 \
+        nasm \
+        xserver-xorg-dev \
+        fuse \
+        build-essential \
+        pkg-config \
+        libpulse-dev m4 intltool dpkg-dev \
+        libfdk-aac-dev \
+        libopus-dev \
+        libmp3lame-dev && \ 
+sudo apt-get update && apt build-dep pulseaudio -y
+cd /tmp && apt source pulseaudio && \
+pulsever=$(pulseaudio --version | awk '{print $2}') && cd /tmp/pulseaudio-$pulsever && ./configure  && \
+git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && cd pulseaudio-module-xrdp && ./bootstrap && ./configure PULSE_DIR="/tmp/pulseaudio-$pulsever" && make
+cd /tmp/pulseaudio-$pulsever/pulseaudio-module-xrdp/src/.libs && install -t "/var/lib/xrdp-pulseaudio-installer" -D -m 644 *.so
+## END KANG ##
