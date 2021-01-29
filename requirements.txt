@@ -1,3 +1,5 @@
+# Main code dependencies for the VCPB to run.
+# For documentation builders, see requirements_docs.txt
 pyrogram
 tgcrypto
 youtube_dl
