@@ -1,6 +1,7 @@
 # Pyrogram bot to automate streaming music in voice chats
 
 ## Read this before scrolling down
+
 * #WeWantPyTGCalls #WeWantJSTGCalls #WeWantTGCallsJS
 * You can't run this on Android using Termux.
 * You can't run this on iOS using iSH.
@@ -11,9 +12,11 @@
 * You can't run this on Google cloud shell.
 
 ## Help
+
 If you face an error, want to discuss this project or get support for it, join [its group](https://t.me/VoiceChatPyroBot) on Telegram.
 
 ## Requirements
+
 * A computer (Debian-based Linux VPS recommmended)
 * An alt Telegram account
 * Bot token from [@BotFather](https://t.me/BotFather)
@@ -55,9 +58,10 @@ Copy `config/sample_config.py` to `config/config.py` and make it use your creden
 
 `DUR_LIMIT` int: max video duration in minutes for downloads
 
-#### PIP requirements
-```
-    pip(3) install -U -r requirements.txt
+#### Installing dependencies
+
+```sh
+pip(3) install -U -r requirements.txt
 ```
 
 ### Running
@@ -71,22 +75,26 @@ Copy `config/sample_config.py` to `config/config.py` and make it use your creden
 These are apt package manager instructions but you can install the required packages with other package managers too.
 
 1. Update and upgrade apt:
-```
-    sudo apt update && sudo apt upgrade
+
+```sh
+sudo apt update && sudo apt upgrade
 ```
 
 2. Install requirements:
-```
-    sudo apt install xrdp pulseaudio mplayer screen
+
+```sh
+sudo apt install xrdp pulseaudio mplayer screen
 ```
 
 3. Download tdesktop:
-```
+
+```sh
     cd ~ && wget https://telegram.org/dl/desktop/linux -O tdesktop.tar.xz && tar -xf tdesktop.tar.xz && rm tdesktop.tar.xz
 ```
 
 4. Configure XRDP session to only start Telegram:
-```
+
+```sh
     echo "~/Telegram/Telegram" >~/.xsession
 ```
 
@@ -150,12 +158,14 @@ These are apt package manager instructions but you can install the required pack
 ```
 
 5. Make a screen for the bot and attach to it:
-```
+
+```sh
     screen -S vcbot
 ```
 
 6. Run the bot:
-```
+
+```sh
    python(3) bot.py
 ```
 
@@ -182,7 +192,8 @@ These are apt package manager instructions but you can install the required pack
 7. Start Voicemeeter engine.
 
 8. Run the bot:
-```
+
+```sh
    python bot.py
 ```
 
@@ -192,18 +203,19 @@ These are apt package manager instructions but you can install the required pack
 
 ## Usage
 
-#### Streaming YouTube videos
+### Streaming YouTube videos
 
 1. Open [YouTube](https://youtube.com) in your browser, and search for a song.
 2. Copy the complete video URL to clipboard and send it to your bot in private.
 
-#### Method 2
+### Method 2
 
 1. Enable inline for you bot in  [@BotFather](https://t.me/BotFather).
 2. In your bot's private, type @usernameOfYourBot followed by your YouTube search query, and click a result.
 
 ## Bot Commands
-#### Inorder to command the bot send one of the mentioned commands below with  a **/**  prefix
+
+> In order to command the bot send one of the mentioned commands below with  a `/`  prefix
 
 * `start`  - start the bot
 
@@ -240,9 +252,11 @@ These are apt package manager instructions but you can install the required pack
 ## Authors & Acknowledgment
 
 ### Inspiration
+
 * [@AndrewLaneX](https://github.com/AndrewLaneX) ([Telegram](https://t.me/TwitFace))
 
 ### Development & contribution
+
 * [@rojserbest](https://github.com/rojserbest) ([Telegram](https://t.me/su_Theta))
 * [@iiiiii1wepfj](https://github.com/iiiiii1wepfj) ([Telegram](https://t.me/itayki))
 * [@ByteOPCode](https://github.com/ByteOPCode) ([Telegram](https://t.me/BAZINGA))
